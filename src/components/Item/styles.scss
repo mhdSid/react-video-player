@@ -1,0 +1,12 @@
+.app-slide-item {
+  width: 17%;
+  min-width: 12em;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .app-slide-item {
+    min-width: initial;
+    max-width: 15em;
+  }
+}

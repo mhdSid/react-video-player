@@ -1,0 +1,49 @@
+.app-slide-item-votes {
+  color: white;
+  text-align: center;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  color: #ccc;
+
+  &.dark {
+    color: #252525;
+  }
+
+  &.year {
+    &:before {
+      content: '\01F4C5';
+    }
+  } 
+  &.info {
+    &:before {
+      content: 'i';
+      background-image: none;
+      background-color: #252525;
+      color: white;
+      border-radius: 50%;
+    }
+  } 
+  &.duration {
+    &:before {
+      content: '\01F565';
+    }
+  }
+  &.country {
+    &:before {
+      content: '\2691';
+    }
+  }
+  &:before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    background-image: url('../../assets/img/profile.png');
+    content: '';
+    margin: 0 .2em 0 0;
+  }
+}

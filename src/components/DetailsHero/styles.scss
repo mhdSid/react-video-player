@@ -1,0 +1,32 @@
+.app-details-hero {
+  background-color: black;
+  height: 36em;
+  position: relative;
+}
+
+.app-details-hero-content {
+  background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.7) 85%, #000 100%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 4em 0;
+}
+
+.app-details-hero-circular-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-details-hero-title {
+  color: white;
+  text-align: center;
+  margin: .5em 0 .5em 0;
+  text-shadow: 1px 1px 1px rgba(0,0,0,1);
+}

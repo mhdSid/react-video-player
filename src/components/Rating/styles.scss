@@ -1,0 +1,25 @@
+.app-swiper-rating-list {
+  display: inline-flex;
+  flex-direction: row;
+  color: #ffe300;
+  margin: 0 .3em 0 0;
+}
+
+.app-swiper-rating-number {
+  font-size: 1.1em;
+  margin: 0 0 0 .2em;
+}
+  
+.app-swiper-rating {
+  &:before {
+    width: 1em;
+    height: 1em;
+    content: '\2605';
+    color: gray;
+  }
+  &.app-dark-rating {
+    &:before {
+      color: #ffe300;
+    }
+  }
+}

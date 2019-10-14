@@ -1,0 +1,19 @@
+.details-content {
+  padding: 1em;
+}
+
+.details-content-plot {
+  color: #252525;
+  font-size: 1.15em;
+  line-height: 1.5em;
+}
+
+.details-content-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.details-content-info-num-item {
+  margin: 0 .5em 0 0;
+}

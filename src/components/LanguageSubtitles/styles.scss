@@ -1,0 +1,36 @@
+.details-content-subtitles {
+  span {
+    display: inline-block;
+    margin: 0 .5em 0 0;
+    text-align: left;
+    line-height: 1.5em;
+    
+    h4 {
+      margin: 0 0 0 .3em;
+      color: #252525;
+      font-weight: 600;
+    }
+
+    h4:last-of-type {
+      color: #737373;
+      font-weight: 100;
+    }
+  }
+}
+
+.details-content-genres, .details-content-subtitles {
+  display: inline-block;
+  margin: 0 3em 0 0;
+  vertical-align: top;
+
+  .section-title {
+    &:before {
+      content: '\2691';
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      margin: 0 .2em 0 0;
+      color: #252525;
+    }
+  }
+}

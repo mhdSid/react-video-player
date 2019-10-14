@@ -1,0 +1,85 @@
+.app-player {
+  height: 100vh;
+  position: relative;
+}
+
+.app-player-loading {
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto !important;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.progress-time {
+  background-color: #ffe300;
+  border-radius: .2em;
+}
+
+.progress-time, .progress-buffer {
+  border-radius: .2em;
+}
+
+.progress-buffer {
+  background-color:rgb(95, 95, 95);
+}
+
+.app-player-controls {
+  // background-color: yellowgreen;
+  height: 3em;
+  z-index: 99999;
+  position: absolute;
+  width: 100%;
+  bottom: 1em;
+  left: 0;
+  padding: .2em .5em;
+  display: flex;
+  flex-direction: column;
+
+ // opacity: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0 1em;
+  min-width: 100%;
+  align-items: center;
+  min-height: 18px;
+  margin: 0 0 .2em 0;
+
+  div {
+    color: rgb(95, 95, 95);
+    font-weight: 600;
+  }
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: rgb(77, 77, 77);
+  border-radius: .2em;
+  margin: 0 1em;
+  color: #ffe300;
+  height: .8em;
+  min-width: auto;
+}
+
+.progress-controls-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+

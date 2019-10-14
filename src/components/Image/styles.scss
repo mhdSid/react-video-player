@@ -1,0 +1,28 @@
+.app-image {
+  width: 100%;
+  min-width: 100%;
+  min-height: 10em;
+  background-color: gray;
+  height: auto;
+  
+  &.big {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  &:not(.big) {
+    border: 4px solid transparent;
+    border-radius: .5em;
+
+    &:hover {
+      border-color: #ffe300;
+      border-radius: .25em;
+    }
+  }
+
+  &.app-img-loaded {
+    background-color: initial;
+  }
+}

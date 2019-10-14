@@ -1,0 +1,54 @@
+
+
+.app-swiper-title {
+  margin: 0 0 .5em 0;
+  color: white;
+}
+
+.app-swiper-btn {
+  color: white;
+  height: 100%;
+  background: linear-gradient(to right,rgba(23,23,23,.95) 0,transparent 100%);
+  text-shadow: 0 0 3px rgba(0,0,0,.8);
+  top: 0;
+  margin: auto;
+  left: 0;
+  width: 3em;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:last-of-type {
+    left: initial;
+    background: linear-gradient(to left,rgba(23,23,23,.95) 0,transparent 100%);
+    right: 0;
+  }
+}
+
+.app-swiper-section {
+  margin: 1em 0 1em 1em;
+
+  &.people {
+    margin: 1em 0;
+
+    .app-swiper-title {
+      color: #252525;
+
+      &:before {
+        vertical-align: middle;
+        content: '\01F3A5';
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        margin: 0 .5em 0 0;
+      }
+    }
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  padding: 0 0 0 .5em;
+}
+

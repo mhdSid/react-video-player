@@ -10,10 +10,25 @@ class _PlayerController {
   galactic = null;
   playing = false;
   loading = true;
+  autoplayRef = null;
+  videoRef = null;
+  hasEvents = null;
 
-  init(callbacks) {
+  init = (callbacks) => {
+    const _callbacks = callbacks && !callbacks.type ? callbacks : null;
+    const append = () => {
+      this.videoRef = document.getElementById("video-player");
+      this.videoRef.appendChild(this.autoplayRef);
+      this.initEvents(_callbacks);
+    };
+
     if (!this.didInit) {
+      this.autoplayRef = document.createElement("div");
+      this.autoplayRef.id = "video";
+      document.body.appendChild(this.autoplayRef);
+
       this.didInit = true;
+      this.galactic = null;
       this.galactic = new Galactic().init({
         video: true,
         reloadOnInit: 10000,
@@ -26,7 +41,6 @@ class _PlayerController {
           this.galactic.setAttribute("muted", true);
           const loadEmpty = this.galactic.loadEmpty();
           // setTimeout(() => {
-          // debugger;
 
           this.galactic.load("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8").play();
           // });
@@ -36,7 +50,21 @@ class _PlayerController {
         volume: 0,
         html5: false
       });
+      this.initEvents(_callbacks);
 
+      /* Handle case of reloading same page */
+      if (!callbacks.type) {
+        append();
+      }
+    } else {
+      append();
+    }
+  };
+
+
+  initEvents = callbacks => {
+    if (callbacks && !this.hasEvents) {
+      this.hasEvents = true;
       this.galactic.on("durationChange", (_data) => {
         this.playing = true;// this.galactic.audioTrackPlaying;
 
@@ -81,12 +109,12 @@ class _PlayerController {
         console.log("readyToPlay", _data);
         // this.galactic.setOptions({ playOnLoad: true });
         // this.galactic.pause();
-        // this.galactic.audioElement.play()
+        this.galactic.play()
         console.log(this.galactic);
       });
 
       this.galactic.on("pause", (_data) => {
-        this.playing = !this.galactic.isPaused;
+        this.playing = this.galactic && !this.galactic.isPaused;
         invoke(callbacks, "setPlaying", this.playing);
         invoke(callbacks, "onPause");
 
@@ -103,20 +131,37 @@ class _PlayerController {
         console.log("end", _data);
       });
     }
-  }
+  };
 
-  playPause() {
+  playPause = () => {
     if (this.galactic.audioTrackPlaying === true) {
       this.galactic.pause();
     } else {
       this.galactic.play();
     }
-  }
+  };
 
-  destroy() {
-    this.didInit = false;
+  getMouseMovePosition = percentage => {
+    const duration = this.galactic.duration;
+    return (duration * percentage) / 100;
+  };
+
+  setPosition = position => {
+    // console.log(getDuration(position), position);
+    this.galactic.setPosition(this.getMouseMovePosition(position) * 1000);
+  };
+
+  destroy = () => {
     this.galactic.destroy();
-  }
+    this.didInit = false;
+    this.hasEvents = null;
+    this.galactic = null;
+    this.playing = false;
+    this.loading = true;
+    this.autoplayRef = null;
+    this.videoRef = null;
+    // debugger;
+  };
 }
 
 const PlayerController = new _PlayerController();

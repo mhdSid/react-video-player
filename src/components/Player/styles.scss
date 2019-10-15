@@ -17,6 +17,13 @@
   }
 }
 
+.app-video-container {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 .progress-time {
   background-color: #ffe300;
   border-radius: .2em;
@@ -60,8 +67,19 @@
 
   div {
     color: rgb(95, 95, 95);
+
+    &.progress-mousemove-position {
+      color: white;
+    }
     font-weight: 600;
   }
+}
+
+.back-btn {
+  position: absolute;
+  top: .5em;
+  left: 0em;
+  z-index: 99999;
 }
 
 .progress-bar {
@@ -72,8 +90,42 @@
   border-radius: .2em;
   margin: 0 1em;
   color: #ffe300;
-  height: .8em;
+  height: .7em;
   min-width: auto;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    .progress-mousemove-position  {
+      display: flex;
+    }
+  }
+}
+
+.progress-mousemove-position {
+  position: absolute;
+  display: none;
+  background-color: #5f5f5f;
+  border-radius: .3em;
+  font-size: .8em;
+  padding: .4em;
+  top: -2.5em;
+  justify-content: center;
+  min-width: 4em;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    border-top: 0px solid #5f5f5f;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid #5f5f5f;
+    background: transparent;
+    border-radius: 0;
+    position: absolute;
+    bottom: -0.37em;
+    transform: rotate(180deg);
+  }
 }
 
 .progress-controls-btns {

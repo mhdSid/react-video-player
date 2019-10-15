@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import cx from "clsx";
 import Image from "../Image";
 import Button from "../Button";
 import Numbers from "../NumbersContainer";
 import styles from "./styles.scss";
+import PlayerController from "../../services/PlayerController";
 
 const DetailsHero = (props) => {
   const detailsHeroClasses = cx(styles["app-details-hero"]);
@@ -18,7 +20,7 @@ const DetailsHero = (props) => {
       <Image big data={data.images.snapshot} />
       <div className={detailsoHeroContentClasses}>
         <div className={detailsHeroCircularBtnsClasses}>
-          <Button circular text="TRAILER" />
+          <Button to="/streams/movie/singel-39/trailer" as={Link} onClick={PlayerController.init} circular big play text="TRAILER" />
           <Button circular text="ADD TO WISH LIST" />
         </div>
         <Numbers big data={data} />

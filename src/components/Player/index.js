@@ -13,11 +13,11 @@ const Player = (props) => {
   console.log("Player,", props);
 
   const playerClasses = cx(styles["app-player"]);
-
+  const videoContainerClasses = cx(styles["app-video-container"]);
   return (
     <div className={playerClasses}>
-      <div id="video" />
-      <PlayerControls />
+      <div className={videoContainerClasses} id="video-player" />
+      <PlayerControls {...props} />
     </div>
   );
 };

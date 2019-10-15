@@ -23,7 +23,7 @@
     align-items: center;
     position: relative;
     justify-content: center;
-    margin: 0 3em 5em 3em;
+    margin: 0 3em;//3em 5em 3em;
 
     &:not(.loading):not(.playing):not(.paused):hover {
       border: 1px solid #ffe300;
@@ -52,6 +52,20 @@
     }
   }
 
+  &.back {
+    color: white;
+    background: transparent;
+    border: none;
+    width: initial;
+    height: initial;
+    &:before {
+      margin: 0 .5em;
+      content: '\2190';
+      display: inline-block;
+      font-size: 1.5em;
+    }
+  }
+
   &.mini {
     width: 2em;
     height: 2em;
@@ -74,7 +88,9 @@
   }
 
   &.play {
-    margin: 0;
+    &:not(.big) {
+      margin: 0;
+    }
     &:before {
       border-color: transparent transparent transparent #202020;
     }
@@ -98,7 +114,9 @@
   }
 
   &.playing, &.paused {
-    border: none;
+    &:not(.big) {
+      border: none;
+    }
     &:before {
       transition: all .3s linear;
       display: inline-block;
@@ -132,6 +150,23 @@
       width: 0;
       height: 0;
       border-radius: 0;
+    }
+    &.big {
+      border: 1px solid transparent;// #ffe300;
+
+      &:before {
+        border-top: 14px solid transparent;
+        border-left: 26px solid white;
+        border-bottom: 14px solid transparent;
+      }
+      &:hover {
+        //border: 1px solid #ffe300;
+        border-color: #ffe300;
+
+        &:before {
+          border-left-color: #ffe300;
+        }
+      }
     }
   }
 

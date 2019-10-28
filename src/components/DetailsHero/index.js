@@ -14,7 +14,6 @@ const DetailsHero = (props) => {
   const detailsHeroTitleClasses = cx(styles["app-details-hero-title"]);
   const detailsHeroCircularBtnsClasses = cx(styles["app-details-hero-circular-btns"]);
   const { data } = props;
-
   return (
     <header className={detailsHeroClasses}>
       <Image big data={data.images.snapshot} />

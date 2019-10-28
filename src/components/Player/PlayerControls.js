@@ -9,8 +9,8 @@ import getDuration from "../../utils/getDuration";
 
 const PlayerControls = (props) => {
   const [duration, setDuration] = useState(null);
-  const [loading, setLoading] = useState(null);
-  const [playing, setPlaying] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [playing, setPlaying] = useState(undefined);
   const [progress, setProgress] = useState(null);
   const [currentTime, setCurrentTime] = useState(null);
   const [buffer, setBuffer] = useState(null);
@@ -90,7 +90,7 @@ const PlayerControls = (props) => {
       setMouseMovePosition(getDuration(position));
     }
     if (percentage) {
-      setLeftPosition(seek(e) - 15);
+      setLeftPosition(seek(e));
     }
   };
 

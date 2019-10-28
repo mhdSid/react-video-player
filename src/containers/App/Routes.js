@@ -1,12 +1,12 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom"; // Redirect
+import { Route, BrowserRouter, Redirect } from "react-router-dom"; // Redirect
 import PropTypes from "prop-types";
 import MainComponent from "../Browse";
 import Details from "../Details";
 import Player from "../../components/Player";
 
 const Routes = () => (
-  <Switch>
+  <BrowserRouter basename="/react-video-player/">
     <Route exact path="/browse" component={MainComponent} />
     <Route
       exact
@@ -19,7 +19,7 @@ const Routes = () => (
       component={Player}
     />
     <Redirect to="/browse" />
-  </Switch>
+  </BrowserRouter>
 );
 
 Routes.propTypes = {

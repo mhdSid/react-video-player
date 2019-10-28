@@ -1,11 +1,31 @@
 {
   "presets": [
-    "@babel/preset-env",
+    [
+      "@babel/env",
+      {
+        "useBuiltIns": "usage", // "usage" | "entry" | false, defaults to false.
+        "corejs": "3.0.0",
+        "targets": {
+          "esmodules": true,
+          "ie": "11"
+        }
+      }
+    ],
     "@babel/preset-react"
   ],
   "plugins": [
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-export-namespace-from",
-    "babel-plugin-transform-react-handled-props"
+    "babel-plugin-transform-react-handled-props",
+    [
+      "@babel/plugin-transform-regenerator",
+      {
+        "asyncGenerators": false,
+        "generators": false,
+        "async": false,
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
   ]
 }
